@@ -1,18 +1,24 @@
-Die bob;
+int sum = 0;
+
 void setup()
 {
-  size(500, 500);
+  size(1000, 1000);
   noLoop();
 }
 void draw()
 {
-  background(255, 150, 150);
-  for (int i = 0; i < 500; i+= 50)
-    for (int j = 50; j < 500; j+= 50) {
+  sum = 0;
+  background(255, 170, 200);
+  for (int i = 10; i < 1000; i+= 50)
+    for (int j = 50; j < 1000; j+= 50) {
       Die bob = new Die (i, j);
       bob.roll();
       bob.show();
+      sum = sum + bob.value;
     }
+   fill(0);
+   textSize(30);
+   text("The total is " + sum, 400,30);
 }
 void mousePressed()
 {
@@ -41,29 +47,29 @@ class Die //models one single dice cube
     fill (255);
     rect(myX, myY, 40, 40);
     if (value == 1) {
-      fill(0);
+      fill(120,40,95);
       ellipse(myX+20, myY+20, 10, 10);
     } 
     else if (value == 2) {
-      fill(0);
+      fill(160,100,120);
       ellipse(myX+10, myY+10, 10, 10);
       ellipse(myX+30, myY+30, 10, 10);
     } 
     else if (value == 3) {
-      fill(0);
+      fill(185,90,130);
       ellipse(myX+10, myY+10, 10, 10);
       ellipse(myX+20, myY+20, 10, 10);
       ellipse(myX+30, myY+30, 10, 10);
     } 
     else if (value == 4) {
-      fill(0);
+      fill(200,130,170);
       ellipse(myX+10, myY+10, 10, 10);
       ellipse(myX+10, myY+30, 10, 10);
       ellipse(myX+30, myY+10, 10, 10);
       ellipse(myX+30, myY+30, 10, 10);
     } 
     else if (value == 5) {
-      fill(0);
+      fill(230,150,180);
       ellipse(myX+10, myY+10, 10, 10);
       ellipse(myX+10, myY+30, 10, 10);
       ellipse(myX+20, myY+20, 10, 10);
@@ -71,7 +77,7 @@ class Die //models one single dice cube
       ellipse(myX+30, myY+30, 10, 10);
     } 
     else if (value == 6) {
-      fill(0);
+      fill(255,180,200);
       ellipse(myX+10, myY+10, 10, 10);
       ellipse(myX+10, myY+20, 10, 10);
       ellipse(myX+10, myY+30, 10, 10);
